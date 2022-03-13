@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListaDeNotas from './Componentes/ListaDeNotas/ListaDeNotas';
 import { Container } from './Componentes/ListaDeNotas/style';
 import { nanoid } from 'nanoid';
@@ -27,6 +27,23 @@ const App = () => {
   const [escuro, setEscuro] = useState(false)
 
   const [procurar, setProcurar] = useState('');
+
+  useEffect(() => {
+    const notasSalvas = JSON.parse(
+      localStorage.getItem('react-anotacoes-app-data')
+    );
+    if (notasSalvas){
+      setNotas(notasSalvas)
+    }
+  }, [])
+  
+  useEffect(() => {
+    localStorage.setItem(
+      'react-anotacoes-app-data',
+      JSON.stringify(anotacoes)
+    );
+  }, [anotacoes]);
+
 
   const adicionarNotas = (text) => {
     const date = new Date();

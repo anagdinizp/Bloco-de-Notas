@@ -11,11 +11,3 @@ export const BotaoModoNoturno = styled.button`
         cursor: pointer;
     }
 `;
-
-export const ModoEscuro = styled.div`
-    background-color: black;
-`;
-
-export const ModoEscuroTitulo = styled.h1`
-    color: white;
-`;

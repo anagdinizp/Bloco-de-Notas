@@ -27,7 +27,6 @@ const CriarNotas = ({ adicionarNota }) => {
         <AddNotas>
             <TextArea
                 rows='8'
-                cols='10'
                 placeholder='Escreva para criar uma nova nota...'
                 value={novoTexto}
                 onChange={digitando}
