@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import ListadeNotas from './Componentes/ListadeNotas/ListadeNotas';
 import { Container } from './Componentes/ListadeNotas/style';
 import { nanoid } from 'nanoid';
+import ProcurarNotas from './Componentes/ProcurarNotas/ProcurarNotas';
 
 const App = () => {
-  const [Anotacoes, setNotas] = useState([
+  const [anotacoes, setNotas] = useState([
     {
       id: nanoid(),
       text: 'Primeira anotação',
@@ -21,9 +22,33 @@ const App = () => {
       date: '11/03/2022'
     }
   ])
-  return(
+
+  const [procurar, setProcurar] = useState('');
+
+  const adicionarNotas = (text) => {
+    const date = new Date();
+    const novaNota = {
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString(),
+    }
+    const novasNotas = [...anotacoes, novaNota]
+    setNotas(novasNotas)
+  }
+
+  const deletarNotas = (id) => {
+    const novasNotas = anotacoes.filter((nota) => nota.id !== id)
+    setNotas(novasNotas)
+  }
+
+  return (
     <Container>
-      <ListadeNotas Anotacoes={Anotacoes}/>
+      <ProcurarNotas procurarTexto={setProcurar} />
+      <ListadeNotas
+        anotacoes={anotacoes.filter((nota) => nota.text.toLowerCase().includes(procurar))}
+        adicionarNota={adicionarNotas}
+        deletarNota={deletarNotas}
+      />
     </Container>
   )
 }

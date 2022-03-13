@@ -8,6 +8,7 @@ export const EstiloNotas = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    white-space: pre-wrap;
 `;
 
 export const Footer = styled.div`

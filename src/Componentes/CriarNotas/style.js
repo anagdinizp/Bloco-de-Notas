@@ -15,13 +15,13 @@ export const TextArea = styled.textarea`
 `;
 
 export const BotaoSalvar = styled.button`
-    background-color: #e1e1e1;
+    background-color: #ededed;
     border: none;
     border-radius: 15px;
     padding: 5px 10px 5px 10px;
     
-    BotaoSalvar:hover{
-        background-color: #ededed;
+    :hover{
+        background-color: #e1e1e1;
         cursor: pointer;
     }
 

@@ -3,13 +3,14 @@ import Notas from '../Notas/Notas';
 import { EstiloListadeNotas } from './style';
 import CriarNotas from '../CriarNotas/CriarNotas';
 
-const ListadeNotas = ({ Anotacoes }) => {
+const ListaDeNotas = ({ anotacoes, adicionarNota, deletarNota }) => {
     return (
         <EstiloListadeNotas>
-            {Anotacoes.map((nota) => <Notas id={nota.id} text={nota.text} date={nota.date}/>)}
-            <CriarNotas></CriarNotas>
-        </EstiloListadeNotas>
+            {anotacoes.map((nota) => 
+            <Notas id={nota.id} text={nota.text} date={nota.date} deletarNota={deletarNota}/>)}
+            <CriarNotas adicionarNota={adicionarNota}/>
+        </EstiloListadeNotas >
     )
 }
 
-export default ListadeNotas
+export default ListaDeNotas
