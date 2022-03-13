@@ -7,8 +7,7 @@ const ProcurarNotas = ({ procurarTexto }) => {
     return (
         <ProcurarNota>
             <LupaIcon/>
-            <InputPesquisar 
-            onChange={(event) => procurarTexto(event.target.value)}/>
+            <InputPesquisar procurarTexto={procurarTexto}/>
         </ProcurarNota>
     )
 }

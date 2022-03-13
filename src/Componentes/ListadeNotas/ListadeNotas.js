@@ -1,15 +1,15 @@
 import React from 'react';
 import Notas from '../Notas/Notas';
-import { EstiloListadeNotas } from './style';
+import { EstiloListaDeNotas } from './style';
 import CriarNotas from '../CriarNotas/CriarNotas';
 
-const ListaDeNotas = ({ anotacoes, adicionarNota, deletarNota }) => {
+const ListaDeNotas = (props) => {
     return (
-        <EstiloListadeNotas>
-            {anotacoes.map((nota) => 
-            <Notas id={nota.id} text={nota.text} date={nota.date} deletarNota={deletarNota}/>)}
-            <CriarNotas adicionarNota={adicionarNota}/>
-        </EstiloListadeNotas >
+        <EstiloListaDeNotas>
+            {props.anotacoes.map((nota) =>
+                <Notas key={nota.id} id={nota.id} text={nota.text} date={nota.date} deletarNota={props.deletarNota} />)}
+            <CriarNotas adicionarNota={props.adicionarNota} />
+        </EstiloListaDeNotas >
     )
 }
 

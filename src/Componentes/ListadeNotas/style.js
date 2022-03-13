@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
-export const EstiloListadeNotas = styled.div`
+export const EstiloListaDeNotas = styled.div`
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 `;
 
 export const Container = styled.div`
-    max-width: 960px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    min-height: 100vh;
+    background-color: ${props => props.escuro ? 'black' : 'white'};
 `;

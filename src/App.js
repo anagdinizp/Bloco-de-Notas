@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import ListadeNotas from './Componentes/ListadeNotas/ListadeNotas';
-import { Container } from './Componentes/ListadeNotas/style';
+import ListaDeNotas from './Componentes/ListaDeNotas/ListaDeNotas';
+import { Container } from './Componentes/ListaDeNotas/style';
 import { nanoid } from 'nanoid';
 import ProcurarNotas from './Componentes/ProcurarNotas/ProcurarNotas';
+import Cabecalho from './Componentes/Cabecalho/Cabecalho';
 
 const App = () => {
   const [anotacoes, setNotas] = useState([
@@ -23,6 +24,8 @@ const App = () => {
     }
   ])
 
+  const [escuro, setEscuro] = useState(false)
+
   const [procurar, setProcurar] = useState('');
 
   const adicionarNotas = (text) => {
@@ -42,9 +45,10 @@ const App = () => {
   }
 
   return (
-    <Container>
+    <Container escuro={escuro} >
+      <Cabecalho escuro={escuro} setEscuro={setEscuro}/>
       <ProcurarNotas procurarTexto={setProcurar} />
-      <ListadeNotas
+      <ListaDeNotas
         anotacoes={anotacoes.filter((nota) => nota.text.toLowerCase().includes(procurar))}
         adicionarNota={adicionarNotas}
         deletarNota={deletarNotas}

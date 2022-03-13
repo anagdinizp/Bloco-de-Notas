@@ -1,9 +1,9 @@
 import React from 'react';
 import { Pesquisar } from './style';
 
-const InputPesquisar = () => {
+const InputPesquisar = ({ procurarTexto }) => {
     return(
-        <Pesquisar type='text' placeholder='Procurar...'/>
+        <Pesquisar onChange={(event) => procurarTexto(event.target.value)} type='text' placeholder='Procurar...'/>
     )
 }
 
